@@ -25,7 +25,7 @@ This code was tested with the following equipaments:
 Install the following dependencies on Kali Linux:
 ```
 $sudo apt update
-$sudo apt install libnl-3-dev libnl-genl-3-dev pkg-config libssl-dev net-tools git sysfsutils python-scapy python-pycryptodome
+$sudo apt install dnsmasq libnl-3-dev libnl-genl-3-dev pkg-config libssl-dev net-tools git sysfsutils python-scapy python-pycryptodome
 ```
 Install the following python package:
 ```
@@ -59,8 +59,3 @@ Then **disable hardware encryption** using the script ./disable-hwcrypto.sh. It'
  * `hostapd_rogue.conf`: configuration file for the rogue ap clone from the real ap
  * `hostapd_rogue.log`: output from hostapd_rogue
  * `rogue_ap_capture.pcap`: file containing packets capture from the rogue ap interface
- 
- **Demostration Video**
- 
- The following link contains a video that demonstrate this attack: [demostration video](https://www.youtube.com/watch?v=Jq6rPCSuv4o)
- 
