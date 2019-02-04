@@ -18,7 +18,7 @@ $sudo apt install dnsmasq libnl-3-dev libnl-genl-3-dev pkg-config libssl-dev net
 ```
 dnsmasq - обязательно установить, иначе интернет не будет работать у жертвы.
 
-Install the following python package:
+Устанавливаем следующие Python-пакеты
 ```
 $pip install --user mitm_channel_based
 ```
