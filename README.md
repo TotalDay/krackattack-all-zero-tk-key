@@ -1,5 +1,4 @@
 ## Подготовка
-This code was tested with the following equipaments:
 * Тестер:
   * Ноутбук
   * Kali Linux 2018.4
