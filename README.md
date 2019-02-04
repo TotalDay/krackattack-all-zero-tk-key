@@ -1,4 +1,4 @@
-## Environment tested
+## Подготовка
 This code was tested with the following equipaments:
 * Тестер:
   * Ноутбук
@@ -11,7 +11,7 @@ This code was tested with the following equipaments:
 
 * Роутер (точка доступа):
 
-## Prerequisites
+## Предустановка
 Установить пакеты Kali Linux:
 ```
 $sudo apt update
@@ -23,31 +23,29 @@ Install the following python package:
 ```
 $pip install --user mitm_channel_based
 ```
-Then **disable hardware encryption** using the script ./disable-hwcrypto.sh. It's recommended to reboot after executing this script. After plugging in your Wi-Fi NIC, use systool -vm ath9k_htc or similar to confirm the nohwcript/.. param has been set. 
+Потом отключить аппаратное шифрование на WIFI у тестера **disable hardware encryption** через скрипт ./disable-hwcrypto.sh. Перезагрузиться (обязательно).
  
- ## Tool usage
- Below, I show an example of tool command line usage and then explain the arguments:
+ ## Использование
+ Запустить скрипт
  
  ```
  $sudo ./krackattack/krack_all_zero_tk.py wlan1 wlan0 usb0 "Familia Couto" -t 00:21:5d:ea:fe:be
  ```
- * `wlan1`: interface that listens and injects packets on the real channel
- * `wlan0`: interface that runs the Rogue AP
- * `usb0`: interface in which is provided internet access
- * `"Familia Couto"`: SSID of the target network
- * `-t 00:21:5d:ea:fe:be`: MAC address of the attacked client
- * You can see many other options running `./krackattack/krack_all_zero_tk.py -h`!
+ * `wlan1`: интерфейс, на котором слушаем и внедряем пакеты в реальный канал роутера
+ * `wlan0`: интерфейс с поддельной базовой станцией
+ * `usb0`: интерфейс с интернетом, может быть что угодно, Ethernet например
+ * `"Familia Couto"`: SSID станции в роутеры, которую подделываем
+ * `-t 00:21:5d:ea:fe:be`: MAC адрес жертвы
+ * Другие настройки можно узнать так `./krackattack/krack_all_zero_tk.py -h`!
  
- **warnings!**
- * Remember to disable the Wi-Fi before running the script!
- * After disabling the Wi-Fi, run the command: `$rfkill unblock wifi`!
+ **Внимание!**
+ * Отключить Wi-Fi в диспетчере перед запуском скрипта!
+ * После отключения Wi-Fi, запускаем команду: `$rfkill unblock wifi`!
  
- **Files Generated**
+ **Вывод**
  
- After running the script for the first time, some new files will be generated:
- 
- * `dnsmasq.conf`: configuration file for DHCP and DNS services
- * `dnsmasq_log`: output from dnsmasq
- * `hostapd_rogue.conf`: configuration file for the rogue ap clone from the real ap
- * `hostapd_rogue.log`: output from hostapd_rogue
- * `rogue_ap_capture.pcap`: file containing packets capture from the rogue ap interface
+ * `dnsmasq.conf`: конфигурация DHCP и DNS
+ * `dnsmasq_log`: вывод dnsmasq
+ * `hostapd_rogue.conf`: файл конфигурации поддельной базовой станции
+ * `hostapd_rogue.log`: вывод поддельной базовой станции
+ * `rogue_ap_capture.pcap`: файл с записанными пакетами, котороые прослушиваются на интерфейсе поддельной базовой станции.
