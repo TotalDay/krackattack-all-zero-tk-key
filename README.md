@@ -1,32 +1,24 @@
-## Warning!
-This code only works with clients that install the all-zero TK in a KraCK attack! Please, use [this tool](https://github.com/lucascouto/krackattacks-scripts) to verify if the client is vunarable to the attack. 
-
 ## Environment tested
 This code was tested with the following equipaments:
-* Attacker:
-  * Sony Vaio SVT13134CXS
-  * SO: Kali Linux
-  * Wi-Fi NIC: Qualcomm Atheros AR9485. Driver: ath9k
-  * Wi-Fi usb adapter: TP-LINK TL-WN727N. Driver: mt7601u
-  * Android smartphone connected via usb to provide 3g internet
+* Тестер:
+  * Ноутбук
+  * Kali Linux 2018.4
+  * 2 WIFI сетевые карты
+  * 1 Ethernet сетевая карта или 4G - модем, или расшара интернета через мобильный интернет USB - Teathering
+  
+* Жертва (которая подключается к роутеру):
+  * Ноутбук или Смартфон или Планшет с WIFI
 
-* Client Attacked:
-  * Sony Vaio VGN-FW370J
-  * SO: Ubuntu 17.10
-  * wpa_supplicant v2.4 (2.4-0ubuntu6 am64)
-
-* Access Point:
-  * D-Link DIR-809
-  * Hardware Version: A2
-  * Firmware Version: 1.08
-  * Configured with 50% TX power and channel 1
+* Роутер (точка доступа):
 
 ## Prerequisites
-Install the following dependencies on Kali Linux:
+Установить пакеты Kali Linux:
 ```
 $sudo apt update
 $sudo apt install dnsmasq libnl-3-dev libnl-genl-3-dev pkg-config libssl-dev net-tools git sysfsutils python-scapy python-pycryptodome
 ```
+dnsmasq - обязательно установить, иначе интернет не будет работать у жертвы.
+
 Install the following python package:
 ```
 $pip install --user mitm_channel_based
